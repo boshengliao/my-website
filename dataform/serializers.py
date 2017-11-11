@@ -5,7 +5,8 @@ from rest_framework import serializers
 from dataform.models import (Snippet,
                              TopMenuModel,
                              SubMenuModel,
-                             ItemModel)
+                             ItemModel
+                             )
 
 
 class SnippetSerializer(serializers.ModelSerializer):
