@@ -22,3 +22,11 @@ class TopMenuModelSerializer(serializers.ModelSerializer):
         model = TopMenuModel
         fields = ('id', 'name', 'description',
                   'introduction', 'active')
+
+
+class SubMenuModelSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = SubMenuModel
+        fields = ('id', 'name', 'description',
+                  'introduction', 'active')
