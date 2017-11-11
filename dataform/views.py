@@ -12,9 +12,11 @@ from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .models import (Snippet, TopMenuModel)
+from .models import (Snippet, TopMenuModel,
+                     SubMenuModel,)
 from .serializers import (SnippetSerializer,
-                          TopMenuModelSerializer)
+                          TopMenuModelSerializer,
+                          SubMenuModelSerializer,)
 
 # Create your views here.
 
@@ -71,3 +73,8 @@ class TopMenuViewSet(viewsets.ModelViewSet):
     """
     queryset = TopMenuModel.objects.all()
     serializer_class = TopMenuModelSerializer
+
+
+class SubMenuViewSet(viewsets.ModelViewSet):
+    queryset = SubMenuModel.objects.all()
+    serializer_class = SubMenuModelSerializer
