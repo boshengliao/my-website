@@ -23,6 +23,7 @@ from rest_framework.routers import DefaultRouter
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
 router.register(r'topmenu', views.TopMenuViewSet)
+router.register(r'submenu', views.SubMenuViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
