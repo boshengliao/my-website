@@ -45,7 +45,7 @@ class SubMenuModel(models.Model):
     icon = models.CharField('图标', max_length=200, blank=True, null=True)
     description = models.CharField('描述', max_length=500, blank=True, null=True)
     introduction = models.CharField('介绍', max_length=1000, blank=True, null=True)
-    topmenu = models.ForeignKey(TopMenuModel, relate_name='submenu', verbose_name='顶级菜单', blank=True, null=True)
+    topmenu = models.ForeignKey(TopMenuModel, related_name='submenu', verbose_name='顶级菜单', blank=True, null=True)
     active = models.BooleanField('可用状态', default=True)
 
     def __str__(self):
@@ -66,7 +66,7 @@ class ItemModel(models.Model):
     introduction = models.CharField('介绍', max_length=1000, blank=True, null=True)
     url = models.CharField('下载地址', max_length=1000, blank=True, null=True)
     file_addr = models.CharField('附件路径', max_length=200, blank=True, null=True)
-    topmenu = models.ForeignKey(SubMenuModel, relate_name='item', verbose_name='子菜单', blank=True, null=True)
+    topmenu = models.ForeignKey(SubMenuModel, related_name='item', verbose_name='子菜单', blank=True, null=True)
     active = models.BooleanField('可用状态', default=True)
 
     def __str__(self):
