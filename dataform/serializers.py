@@ -25,8 +25,9 @@ class TopMenuModelSerializer(serializers.ModelSerializer):
 
 
 class SubMenuModelSerializer(serializers.ModelSerializer):
+    menu = serializers.ReadOnlyField(source='menu.name')
 
     class Meta:
         model = SubMenuModel
-        fields = ('id', 'name', 'description',
-                  'introduction', 'active')
+        fields = ('url', 'id', 'name', 'description',
+                  'introduction', 'menu', 'active')
