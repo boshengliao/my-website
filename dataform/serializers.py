@@ -16,12 +16,6 @@ class SnippetSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'code', 'linenos', 'language', 'style')
 
 
-class TopMenuModelSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = TopMenuModel
-        fields = ('id', 'name', 'description',
-                  'introduction', 'active')
 
 
 class SubMenuModelSerializer(serializers.ModelSerializer):
@@ -31,3 +25,15 @@ class SubMenuModelSerializer(serializers.ModelSerializer):
         model = SubMenuModel
         fields = ('url', 'id', 'name', 'description',
                   'introduction', 'menu', 'active')
+
+    def __unicode__(self):
+        return '%d: %s' % (self.id, self.name)
+
+class TopMenuModelSerializer(serializers.ModelSerializer):
+    # submenu = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    submenu = SubMenuModelSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = TopMenuModel
+        fields = ('url', 'id', 'name', 'description',
+                  'introduction', 'submenu', 'active')
