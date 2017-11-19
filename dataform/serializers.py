@@ -16,8 +16,6 @@ class SnippetSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'code', 'linenos', 'language', 'style')
 
 
-
-
 class SubMenuModelSerializer(serializers.ModelSerializer):
     menu = serializers.ReadOnlyField(source='menu.name')
 
@@ -28,6 +26,7 @@ class SubMenuModelSerializer(serializers.ModelSerializer):
 
     def __unicode__(self):
         return '%d: %s' % (self.id, self.name)
+
 
 class TopMenuModelSerializer(serializers.ModelSerializer):
     # submenu = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
