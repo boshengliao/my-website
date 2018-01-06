@@ -30,4 +30,6 @@ urlpatterns = [
     # url(r'^dataform/', include('dataform.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^dataform/', include(router.urls)),
+
+    url(r'^index$', views.index, name='index'),
 ]
