@@ -26,7 +26,7 @@ def index(request):
     """
     txt = 'hello world'
     # return HttpResponse(txt)
-    html = 'mywebsite/index.html'
+    html = 'dataform/index.html'
     return render(request, html)
 
 
