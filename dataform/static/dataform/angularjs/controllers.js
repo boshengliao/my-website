@@ -1,5 +1,6 @@
 // controllers
 myapp.controller('test', test)
+myapp.controller('homeCtrl', homeCtrl)
 
 // controller funcs
 function test($scope){
@@ -8,6 +9,7 @@ function test($scope){
     $scope.hi = 'hi...'
 }
 
-// function homeCtrl($scope){
-//     log('home')
-// }
+function homeCtrl($scope){
+    log('home')
+    $scope.hi = 'hi...'
+}

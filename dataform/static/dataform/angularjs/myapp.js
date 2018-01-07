@@ -13,7 +13,7 @@ myapp.config(['$interpolateProvider', '$locationProvider', '$routeProvider',
         $routeProvider
             .when('/home', {
                 templateUrl: 'static/dataform/html/home.html',
-                controller: 'homeCtrl'
+                controller: 'homeCtrl',
             })
             .otherwise('/home')
     }
@@ -21,7 +21,3 @@ myapp.config(['$interpolateProvider', '$locationProvider', '$routeProvider',
 
 // 将 console.log 绑定到 log
 var log = console.log.bind(console)
-
-function homeCtrl($scope){
-    log('home')
-}
