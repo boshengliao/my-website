@@ -52,4 +52,33 @@ function menuCtrl($scope, $http){
 
 function menuNewCtrl($scope, $http){
     log('welcome to menuNewCtrl')
+    $scope.name = ''
+    $scope.description = ''
+    $scope.introduction = ''
+
+    $scope.create = function(){
+        name = $scope.name
+        description = $scope.description
+        introduction = $scope.introduction
+        if (name === ''){
+            alert('名字不能为空')
+            return
+        }
+        t = {
+            'name': name,
+            'description': description,
+            'introduction': introduction,
+        }
+        data = JSON.stringify(t)
+        log('data', data)
+        var url = 'dataform/topmenu'
+        var config = {
+            'method': 'POST',
+            'url': url,
+            'data': data,
+        }
+        $http(config).then(function(response){
+            log(response)
+        })
+    }
 }
