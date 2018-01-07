@@ -12,11 +12,22 @@ from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .models import (Snippet, TopMenuModel)
+from .models import (Snippet, TopMenuModel,
+                     SubMenuModel,)
 from .serializers import (SnippetSerializer,
-                          TopMenuModelSerializer)
+                          TopMenuModelSerializer,
+                          SubMenuModelSerializer,)
 
 # Create your views here.
+
+def index(request):
+    """
+    载入 angular 用
+    """
+    txt = 'hello world'
+    # return HttpResponse(txt)
+    html = 'dataform/index.html'
+    return render(request, html)
 
 
 # @api_view(['GET', 'POST'])
@@ -64,10 +75,14 @@ from .serializers import (SnippetSerializer,
     #     snippet.delete()
     #     return Response(status=status.HTTP_204_NO_CONTENT)
 
-
 class TopMenuViewSet(viewsets.ModelViewSet):
     """
     This viewset automatically provides `list` and `detail` actions.
     """
     queryset = TopMenuModel.objects.all()
     serializer_class = TopMenuModelSerializer
+
+
+class SubMenuViewSet(viewsets.ModelViewSet):
+    queryset = SubMenuModel.objects.all()
+    serializer_class = SubMenuModelSerializer

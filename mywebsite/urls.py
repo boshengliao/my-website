@@ -23,10 +23,13 @@ from rest_framework.routers import DefaultRouter
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
 router.register(r'topmenu', views.TopMenuViewSet)
+router.register(r'submenu', views.SubMenuViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^dataform/', include('dataform.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^', include(router.urls)),
+    url(r'^dataform/', include(router.urls)),
+
+    url(r'^$', views.index, name='index'),
 ]
