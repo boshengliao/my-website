@@ -71,12 +71,15 @@ function menuNewCtrl($scope, $http){
         }
         data = JSON.stringify(t)
         log('data', data)
-        var url = 'dataform/topmenu'
+        var url = 'dataform/topmenu/'
         var config = {
             'method': 'POST',
             'url': url,
             'data': data,
         }
+        // $http.post(url, data).then(function(response){
+        //     log(response)
+        // })
         $http(config).then(function(response){
             log(response)
         })

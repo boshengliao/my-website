@@ -75,7 +75,6 @@ def index(request):
     #     snippet.delete()
     #     return Response(status=status.HTTP_204_NO_CONTENT)
 
-@csrf_exempt
 class TopMenuViewSet(viewsets.ModelViewSet):
     """
     This viewset automatically provides `list` and `detail` actions.
@@ -84,7 +83,6 @@ class TopMenuViewSet(viewsets.ModelViewSet):
     serializer_class = TopMenuModelSerializer
 
 
-@csrf_exempt
 class SubMenuViewSet(viewsets.ModelViewSet):
     queryset = SubMenuModel.objects.all()
     serializer_class = SubMenuModelSerializer
