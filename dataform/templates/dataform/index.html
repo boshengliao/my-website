@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myapp">
     <head>
         <meta charset="utf-8">
         <p>i am head</p>
@@ -7,9 +7,16 @@
     </head>
     <body>
         <p>i am body</p>
-        <script type="text/javascript" src="static/dataform/angularjs/angular.min.js"></script>
+        <p>Hello World...</p>
+
+        <div ng-controller="test">
+            <input ng-model="txt">
+        </div>
+        
         <script type="text/javascript" src="static/dataform/jquery/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="static/dataform/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="static/dataform/angularjs/angular.min.js"></script>
+        <script type="text/javascript" src="static/dataform/angularjs/myapp.js"></script>
+        <script type="text/javascript" src="static/dataform/angularjs/controllers.js"></script>
     </body>
 </html>
-<p>Hello World...</p>
