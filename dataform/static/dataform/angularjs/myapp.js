@@ -1,7 +1,15 @@
 // 引入 myapp
 var myapp = angular.module('myapp', ['ngRoute'])
 
+// html files folder
 var htmlFolder = 'static/dataform/html/'
+
+// url partial
+var home = '/home'
+var spellName = '/spellName'
+var multiply = '/multiply'
+var menu = '/menu'
+var _new = '/new'
 
 myapp.config(['$interpolateProvider', '$locationProvider', '$routeProvider',
     function config($interpolateProvider, $locationProvider, $routeProvider){
@@ -13,21 +21,25 @@ myapp.config(['$interpolateProvider', '$locationProvider', '$routeProvider',
         $locationProvider.hashPrefix('!');
         // 设置路由
         $routeProvider
-            .when('/home', {
+            .when(home, {
                 templateUrl: htmlFolder + 'home.html',
                 controller: 'homeCtrl',
             })
-            .when('/spellName', {
+            .when(spellName, {
                 templateUrl: htmlFolder + 'spell_name.html',
                 controller: 'spellNameCtrl',
             })
-            .when('/multiply', {
+            .when(multiply, {
                 templateUrl: htmlFolder + 'multiply.html',
                 controller: 'multiplyCtrl',
             })
-            .when('/menu', {
+            .when(menu, {
                 templateUrl: htmlFolder + 'menu.html',
                 controller: 'muneCtrl',
+            })
+            .when(menu + _new, {
+                templateUrl: htmlFolder + 'menu_new.html',
+                controller: 'muneNewCtrl',
             })
             .otherwise('/home')
     }
