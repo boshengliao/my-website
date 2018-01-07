@@ -10,16 +10,6 @@ function test($scope){
     $scope.hi = 'hi...'
 }
 
-myapp.factory('myApi', myApi)
-function myApi($http){
-    var r = {}
-    r.multiply = function(x, y){
-        return x * y
-    }
-
-    return r
-}
-
 function homeCtrl($scope, myApi){
     log('home')
     $scope.hi = 'hi...'
@@ -30,7 +20,7 @@ function spellNameCtrl($scope){
     log('welcome to spellNameCtrl')
 }
 
-function multiplyCtrl($scope){
+function multiplyCtrl($scope, myApi){
     log('welcome to multiplyCtrl')    
     $scope.a = 2
     $scope.b = 3
