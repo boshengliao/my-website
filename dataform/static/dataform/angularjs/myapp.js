@@ -25,6 +25,10 @@ myapp.config(['$interpolateProvider', '$locationProvider', '$routeProvider',
                 templateUrl: htmlFolder + 'multiply.html',
                 controller: 'multiplyCtrl',
             })
+            .when('/menu', {
+                templateUrl: htmlFolder + 'menu.html',
+                controller: 'muneCtrl',
+            })
             .otherwise('/home')
     }
 ]);

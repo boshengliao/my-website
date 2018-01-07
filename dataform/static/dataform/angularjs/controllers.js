@@ -2,6 +2,7 @@
 myapp.controller('homeCtrl', homeCtrl)
 myapp.controller('spellNameCtrl', spellNameCtrl)
 myapp.controller('multiplyCtrl', multiplyCtrl)
+myapp.controller('muneCtrl', muneCtrl)
 
 // controller funcs
 function test($scope){
@@ -13,14 +14,7 @@ function test($scope){
 function homeCtrl($scope, $http){
     log('home')
     $scope.hi = 'hi...'
-    var url = 'dataform/topmenu'
-    r = $http.get(url).then(function(response){
-        log('response', response)
-        t = response.data
-        $scope.menus = t
-        return t
-    })
-    log('r', r)
+
 }
 
 function spellNameCtrl($scope){
@@ -30,7 +24,7 @@ function spellNameCtrl($scope){
 }
 
 function multiplyCtrl($scope, myApi){
-    log('welcome to multiplyCtrl')    
+    log('welcome to multiplyCtrl')
     $scope.a = 2
     $scope.b = 3
     $scope.result = $scope.a * $scope.b
@@ -43,4 +37,14 @@ function multiplyCtrl($scope, myApi){
         $scope.b = t
         $scope.result = t
     }
+}
+
+function muneCtrl($scope, $http){
+    log('welcome to muneCtrl')
+    var url = 'dataform/topmenu'
+    $http.get(url).then(function(response){
+        log('response', response)
+        t = response.data
+        $scope.menus = t
+    })
 }
