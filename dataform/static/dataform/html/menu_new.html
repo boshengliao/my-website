@@ -1,10 +1,18 @@
 <div>
-    <a href="#!/menu">上一级</a><br>
-    <label>菜单名: </label>
-    <input ng-model="name"><br>
-    <label>描述: </label>
-    <input ng-model="description"><br>
-    <label>介绍: </label>
-    <input ng-model="introduction"><br>
-    <button ng-click="create()">创建</button>
+    <form>
+        <div class="form-group">
+            <label for="name">菜单名:</label>
+            <input type="name" class="form-control" id="name" ng-model="name" placeholder="name">
+        </div>
+        <div class="form-group">
+            <label for="description">描述:</label>
+            <input type="description" class="form-control" id="description" ng-model="description" placeholder="description">
+        </div>
+        <div class="form-group">
+            <label for="introduction">介绍:</label>
+            <input type="introduction" class="form-control" id="introduction" ng-model="introduction" placeholder="introduction">
+        </div>
+        <a class="btn btn-default" href="#!/menu">上一级</a>
+        <button type="submit" class="btn btn-default" ng-click="create()">创建</button>
+    </form>
 </div>
