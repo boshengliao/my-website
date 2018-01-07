@@ -10,14 +10,23 @@ function test($scope){
     $scope.hi = 'hi...'
 }
 
-function homeCtrl($scope, myApi){
+function homeCtrl($scope, $http){
     log('home')
     $scope.hi = 'hi...'
-
+    var url = 'dataform/topmenu'
+    r = $http.get(url).then(function(response){
+        log('response', response)
+        t = response.data
+        $scope.menus = t
+        return t
+    })
+    log('r', r)
 }
 
 function spellNameCtrl($scope){
     log('welcome to spellNameCtrl')
+    $scope.firstName = '小'
+    $scope.lastName = '白'
 }
 
 function multiplyCtrl($scope, myApi){
