@@ -1,0 +1,6 @@
+<div>
+    <a class="btn btn-default" href="#!/menu/new">新建</a>
+    <li ng-repeat="menu in menus" ng-if="menu.active">
+        [[ menu.name ]]<button ng-click="retrive(menu.id)">get</button>
+    </li>
+</div>

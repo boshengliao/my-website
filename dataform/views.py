@@ -20,6 +20,15 @@ from .serializers import (SnippetSerializer,
 
 # Create your views here.
 
+def index(request):
+    """
+    载入 angular 用
+    """
+    txt = 'hello world'
+    # return HttpResponse(txt)
+    html = 'dataform/index.html'
+    return render(request, html)
+
 
 # @api_view(['GET', 'POST'])
 # def snippet_list(request):
@@ -65,7 +74,6 @@ from .serializers import (SnippetSerializer,
     # elif request.method == 'DELETE':
     #     snippet.delete()
     #     return Response(status=status.HTTP_204_NO_CONTENT)
-
 
 class TopMenuViewSet(viewsets.ModelViewSet):
     """
