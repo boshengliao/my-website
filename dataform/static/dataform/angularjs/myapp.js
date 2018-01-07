@@ -35,11 +35,11 @@ myapp.config(['$interpolateProvider', '$locationProvider', '$routeProvider',
             })
             .when(menu, {
                 templateUrl: htmlFolder + 'menu.html',
-                controller: 'muneCtrl',
+                controller: 'menuCtrl',
             })
             .when(menu + _new, {
                 templateUrl: htmlFolder + 'menu_new.html',
-                controller: 'muneNewCtrl',
+                controller: 'menuNewCtrl',
             })
             .otherwise('/home')
     }

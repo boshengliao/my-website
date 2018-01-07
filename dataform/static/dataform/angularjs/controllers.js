@@ -2,7 +2,8 @@
 myapp.controller('homeCtrl', homeCtrl)
 myapp.controller('spellNameCtrl', spellNameCtrl)
 myapp.controller('multiplyCtrl', multiplyCtrl)
-myapp.controller('muneCtrl', muneCtrl)
+myapp.controller('menuCtrl', menuCtrl)
+myapp.controller('menuNewCtrl', menuNewCtrl)
 
 // controller funcs
 function test($scope){
@@ -39,12 +40,16 @@ function multiplyCtrl($scope, myApi){
     }
 }
 
-function muneCtrl($scope, $http){
-    log('welcome to muneCtrl')
+function menuCtrl($scope, $http){
+    log('welcome to menuCtrl')
     var url = 'dataform/topmenu'
     $http.get(url).then(function(response){
         log('response', response)
         t = response.data
         $scope.menus = t
     })
+}
+
+function menuNewCtrl($scope, $http){
+    log('welcome to menuNewCtrl')
 }
