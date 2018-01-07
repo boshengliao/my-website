@@ -50,7 +50,7 @@ function menuCtrl($scope, $http){
     })
 }
 
-function menuNewCtrl($scope, $http){
+function menuNewCtrl($scope, $http, $location){
     log('welcome to menuNewCtrl')
     $scope.name = ''
     $scope.description = ''
@@ -77,11 +77,12 @@ function menuNewCtrl($scope, $http){
             'url': url,
             'data': data,
         }
-        // $http.post(url, data).then(function(response){
-        //     log(response)
-        // })
         $http(config).then(function(response){
             log(response)
+            var url = 'menu'
+            $location.path(url)
+        }, function(response){
+            alert('fail...')
         })
     }
 }
