@@ -15,6 +15,10 @@ myapp.config(['$interpolateProvider', '$locationProvider', '$routeProvider',
                 templateUrl: 'static/dataform/html/home.html',
                 controller: 'homeCtrl',
             })
+            .when('/spellName', {
+                templateUrl: 'static/dataform/html/spell_name.html',
+                controller: 'spellNameCtrl',
+            })
             .otherwise('/home')
     }
 ]);

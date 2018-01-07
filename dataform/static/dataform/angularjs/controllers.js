@@ -1,6 +1,6 @@
 // controllers
-myapp.controller('test', test)
 myapp.controller('homeCtrl', homeCtrl)
+myapp.controller('spellNameCtrl', spellNameCtrl)
 
 // controller funcs
 function test($scope){
@@ -34,4 +34,8 @@ function homeCtrl($scope, myApi){
         $scope.b = t
         $scope.result = t
     }
+}
+
+function spellNameCtrl($scope){
+    log('welcome to spell name...')
 }
