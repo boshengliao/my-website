@@ -118,7 +118,6 @@ function menuRetriveCtrl($scope, $http, $routeParams,
             return
         }
         var t = {
-            // 'id': id,
             'name': name,
             'description': description,
             'introduction': introduction,
