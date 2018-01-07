@@ -28,4 +28,10 @@ function homeCtrl($scope, myApi){
     $scope.getResult = function(){
         $scope.result = myApi.multiply($scope.a, $scope.b)
     }
+    $scope.reset = function(){
+        t = 0
+        $scope.a = t
+        $scope.b = t
+        $scope.result = t
+    }
 }
