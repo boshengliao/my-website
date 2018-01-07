@@ -1,6 +1,8 @@
 // 引入 myapp
 var myapp = angular.module('myapp', ['ngRoute'])
 
+var htmlFolder = 'static/dataform/html/'
+
 myapp.config(['$interpolateProvider', '$locationProvider', '$routeProvider',
     function config($interpolateProvider, $locationProvider, $routeProvider){
         // 因为 angular 的 {{ value }} 表示与 django 冲突
@@ -12,12 +14,16 @@ myapp.config(['$interpolateProvider', '$locationProvider', '$routeProvider',
         // 设置路由
         $routeProvider
             .when('/home', {
-                templateUrl: 'static/dataform/html/home.html',
+                templateUrl: htmlFolder + 'home.html',
                 controller: 'homeCtrl',
             })
             .when('/spellName', {
-                templateUrl: 'static/dataform/html/spell_name.html',
+                templateUrl: htmlFolder + 'spell_name.html',
                 controller: 'spellNameCtrl',
+            })
+            .when('/multiply', {
+                templateUrl: htmlFolder + 'multiply.html',
+                controller: 'multiplyCtrl',
             })
             .otherwise('/home')
     }

@@ -1,6 +1,7 @@
 // controllers
 myapp.controller('homeCtrl', homeCtrl)
 myapp.controller('spellNameCtrl', spellNameCtrl)
+myapp.controller('multiplyCtrl', multiplyCtrl)
 
 // controller funcs
 function test($scope){
@@ -22,6 +23,15 @@ function myApi($http){
 function homeCtrl($scope, myApi){
     log('home')
     $scope.hi = 'hi...'
+
+}
+
+function spellNameCtrl($scope){
+    log('welcome to spellNameCtrl')
+}
+
+function multiplyCtrl($scope){
+    log('welcome to multiplyCtrl')    
     $scope.a = 2
     $scope.b = 3
     $scope.result = $scope.a * $scope.b
@@ -34,8 +44,4 @@ function homeCtrl($scope, myApi){
         $scope.b = t
         $scope.result = t
     }
-}
-
-function spellNameCtrl($scope){
-    log('welcome to spell name...')
 }
