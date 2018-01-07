@@ -5,6 +5,7 @@ myapp.controller('multiplyCtrl', multiplyCtrl)
 myapp.controller('menuCtrl', menuCtrl)
 myapp.controller('menuNewCtrl', menuNewCtrl)
 
+
 // controller funcs
 function test($scope){
     log('aaa')
@@ -40,9 +41,9 @@ function multiplyCtrl($scope, myApi){
     }
 }
 
-function menuCtrl($scope, $http){
+function menuCtrl($scope, $http, myApi){
     log('welcome to menuCtrl')
-    var url = 'dataform/topmenu'
+    var url = myApi.topMenu
     $http.get(url).then(function(response){
         log('response', response)
         t = response.data
@@ -50,7 +51,8 @@ function menuCtrl($scope, $http){
     })
 }
 
-function menuNewCtrl($scope, $http, $location){
+function menuNewCtrl($scope, $http, $location,
+                     myApi){
     log('welcome to menuNewCtrl')
     $scope.name = ''
     $scope.description = ''
@@ -71,7 +73,7 @@ function menuNewCtrl($scope, $http, $location){
         }
         data = JSON.stringify(t)
         log('data', data)
-        var url = 'dataform/topmenu/'
+        var url = myApi.topMenu
         var config = {
             'method': 'POST',
             'url': url,

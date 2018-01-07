@@ -1,16 +1,14 @@
 // factory
 myapp.factory('myApi', myApi)
 function myApi($http){
+/*
+存放后台 api
+*/
     var r = {}
     r.multiply = function(x, y){
         return x * y
     }
-    r.getMenus = function(){
-        var url = 'dataform/topmenu'
-        t = $http.get(url).then(function(response){
-            return response.data
-        })
-        return t
-    }
+
+    r.topMenu = 'dataform/topmenu'
     return r
 }
