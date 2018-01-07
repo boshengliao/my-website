@@ -9,6 +9,6 @@ function myApi($http){
         return x * y
     }
 
-    r.topMenu = 'dataform/topmenu'
+    r.topMenu = 'dataform/topmenu/'
     return r
 }

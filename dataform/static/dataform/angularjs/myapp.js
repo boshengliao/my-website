@@ -13,6 +13,10 @@ var myUrl = {
     new: '/new',
 }
 
+var myParam = {
+    id: '/:id',
+}
+
 myapp.config(['$interpolateProvider', '$locationProvider', '$routeProvider',
     function config($interpolateProvider, $locationProvider, $routeProvider){
         // 因为 angular 的 {{ value }} 表示与 django 冲突
@@ -42,6 +46,10 @@ myapp.config(['$interpolateProvider', '$locationProvider', '$routeProvider',
             .when(myUrl.menu + myUrl.new, {
                 templateUrl: htmlFolder + 'menu_new.html',
                 controller: 'menuNewCtrl',
+            })
+            .when(myUrl.menu + myParam.id, {
+                templateUrl: htmlFolder + 'menu_retrive.html',
+                controller: 'menuRetriveCtrl',
             })
             .otherwise('/home')
     }

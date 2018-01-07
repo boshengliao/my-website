@@ -4,15 +4,10 @@ myapp.controller('spellNameCtrl', spellNameCtrl)
 myapp.controller('multiplyCtrl', multiplyCtrl)
 myapp.controller('menuCtrl', menuCtrl)
 myapp.controller('menuNewCtrl', menuNewCtrl)
+myapp.controller('menuRetriveCtrl', menuRetriveCtrl)
 
 
 // controller funcs
-function test($scope){
-    log('aaa')
-    $scope.txt = 'hello123'
-    $scope.hi = 'hi...'
-}
-
 function homeCtrl($scope, $http){
     log('home')
     $scope.hi = 'hi...'
@@ -41,20 +36,24 @@ function multiplyCtrl($scope, myApi){
     }
 }
 
-function menuCtrl($scope, $http, myApi){
+function menuCtrl($scope, $http, myApi, $location){
     log('welcome to menuCtrl')
     var url = myApi.topMenu
     $http.get(url).then(function(response){
-        log('response', response)
         t = response.data
         $scope.menus = t
     })
+
+    $scope.retrive = function(id){
+        log('id', id)
+        var url = myUrl.menu + '/' + id
+        log('url', url)
+        $location.path(url)
+    }
 }
-log('myUrl', myUrl)
+
 function menuNewCtrl($scope, $http, $location,
                      myApi){
-    log('welcome to menuNewCtrl')
-    log('myUrl', myUrl)
     $scope.name = ''
     $scope.description = ''
     $scope.introduction = ''
@@ -76,17 +75,22 @@ function menuNewCtrl($scope, $http, $location,
         log('data', data)
         var url = myApi.topMenu
         var config = {
-            'method': 'GET',
+            'method': 'POST',
             'url': url,
             'data': data,
         }
         $http(config).then(function(response){
             log(response)
-            log(myUrl)
             var url = myUrl.menu
             $location.path(url)
         }, function(response){
-            alert('fail...')
+            alert('post fail...')
         })
     }
+}
+
+function menuRetriveCtrl($scope, $http, $routeParams, myApi){
+    log('welcome to menuRetriveCtrl')
+    t = $routeParams.id
+    log('t', t)
 }
