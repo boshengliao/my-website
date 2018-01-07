@@ -1,6 +1,20 @@
 <div>
     <a class="btn btn-default" href="#!/menu/new">新建</a>
-    <li ng-repeat="menu in menus" ng-if="menu.active">
-        [[ menu.name ]]<button ng-click="retrive(menu.id)">get</button>
-    </li>
+    <table class="table">
+        <caption>测试表头</caption>
+        <thead>
+            <tr>
+                <th>#</th>
+                <td>name</td>
+                <td>action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="menu in menus" ng-if="menu.active">
+                <th>[[ $index + 1 ]]</th>
+                <td>[[ menu.name ]]</td>
+                <td><button class="btn btn-default" ng-click="retrive(menu.id)">get</button></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
