@@ -31,5 +31,5 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^dataform/', include(router.urls)),
 
-    url(r'^index$', views.index, name='index'),
+    url(r'^$', views.index, name='index'),
 ]

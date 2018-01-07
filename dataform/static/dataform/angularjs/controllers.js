@@ -5,8 +5,9 @@ myapp.controller('test', test)
 function test($scope){
     log('aaa')
     $scope.txt = 'hello123'
+    $scope.hi = 'hi...'
 }
 
-function homeCtrl($scope){
-    log('home')
-}
+// function homeCtrl($scope){
+//     log('home')
+// }
