@@ -59,9 +59,9 @@ function menuNewCtrl($scope, $http, $location,
     $scope.introduction = ''
 
     $scope.create = function(){
-        name = $scope.name
-        description = $scope.description
-        introduction = $scope.introduction
+        var name = $scope.name
+        var description = $scope.description
+        var introduction = $scope.introduction
         if (name === ''){
             alert('名字不能为空')
             return
@@ -89,8 +89,52 @@ function menuNewCtrl($scope, $http, $location,
     }
 }
 
-function menuRetriveCtrl($scope, $http, $routeParams, myApi){
+function menuRetriveCtrl($scope, $http, $routeParams,
+                         $location, myApi){
     log('welcome to menuRetriveCtrl')
-    t = $routeParams.id
-    log('t', t)
+    id = $routeParams.id
+    var url = myApi.topMenu + id + '/'
+    var config = {
+        method: 'GET',
+        url: url,
+    }
+    $http(config).then(function(response){
+        var t = response.data
+        $scope.id = t.id
+        $scope.name = t.name
+        $scope.description = t.description
+        $scope.introduction = t.introduction
+    }, function(response){
+        alert('retrive fail')
+    })
+
+    $scope.update = function(){
+        var id = $scope.id
+        var name = $scope.name
+        var description = $scope.description
+        var introduction = $scope.introduction
+        if (id === '' || id === null){
+            alert('对象不存在')
+            return
+        }
+        var t = {
+            // 'id': id,
+            'name': name,
+            'description': description,
+            'introduction': introduction,
+        }
+        var data = JSON.stringify(t)
+        var url = myApi.topMenu + id + '/'
+        var config = {
+            method: 'PUT',
+            url: url,
+            data: data,
+        }
+        $http(config).then(function(response){
+            var url = myUrl.menu
+            $location.path(url)
+        }, function(response){
+            alert('update fail')
+        })
+    }
 }
