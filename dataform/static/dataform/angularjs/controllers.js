@@ -50,10 +50,11 @@ function menuCtrl($scope, $http, myApi){
         $scope.menus = t
     })
 }
-
+log('myUrl', myUrl)
 function menuNewCtrl($scope, $http, $location,
                      myApi){
     log('welcome to menuNewCtrl')
+    log('myUrl', myUrl)
     $scope.name = ''
     $scope.description = ''
     $scope.introduction = ''
@@ -75,13 +76,14 @@ function menuNewCtrl($scope, $http, $location,
         log('data', data)
         var url = myApi.topMenu
         var config = {
-            'method': 'POST',
+            'method': 'GET',
             'url': url,
             'data': data,
         }
         $http(config).then(function(response){
             log(response)
-            var url = 'menu'
+            log(myUrl)
+            var url = myUrl.menu
             $location.path(url)
         }, function(response){
             alert('fail...')
